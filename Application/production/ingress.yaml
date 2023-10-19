@@ -15,7 +15,7 @@ spec:
         path: /
         backend:
           service:
-            name: backend-howtofixcve
+            name: howtofixcve-backend
             port:
               number: 8080
 ---
@@ -36,7 +36,7 @@ spec:
         path: /
         backend:
           service:
-            name: frontend-howtofixcve
+            name: howtofixcve-frontend
             port:
               number: 3030
 

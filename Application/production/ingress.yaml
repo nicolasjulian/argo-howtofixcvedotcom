@@ -17,7 +17,7 @@ spec:
           service:
             name: backend-howtofixcve
             port:
-              number: 3030
+              number: 8080
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -38,5 +38,5 @@ spec:
           service:
             name: frontend-howtofixcve
             port:
-              number: 8080
+              number: 3030
 

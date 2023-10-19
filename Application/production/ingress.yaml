@@ -1,0 +1,42 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: api-howtofixcve
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-body-size: 10m
+    nginx.ingress.kubernetes.io/proxy-read-timeout: 300s
+spec:
+  rules:
+  - host: "api.howtofixcve.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: backend-howtofixcve
+            port:
+              number: 3030
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: howtofixcve
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-body-size: 10m
+    nginx.ingress.kubernetes.io/proxy-read-timeout: 300s
+spec:
+  rules:
+  - host: "howtofixcve.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: frontend-howtofixcve
+            port:
+              number: 8080
+

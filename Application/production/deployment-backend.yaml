@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-howtofixcve
+  namespace: labs-nicolas
+  annotations:
+    reloader.stakater.com/auto: "true"
+spec:
+  selector:
+    matchLabels:
+      service: backend-howtofixcve
+  replicas: 2
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 10%
+      maxSurge: 10%
+  template:
+    metadata:
+      labels:
+        service: backend-howtofixcve
+    spec:
+      dnsConfig:
+        options:
+          - name: ndots
+            value: "1"
+      containers:
+      - image: nicolas333/backend:4-a228606
+        name: howtofixcve
+        imagePullPolicy: IfNotPresent
+        envFrom:
+        - secretRef:
+            name: opencve-unamepass
+        env:
+          - name: CVE_API
+            value: "https://www.opencve.io"

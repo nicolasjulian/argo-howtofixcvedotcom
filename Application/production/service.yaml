@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: howtofixcve-backend
+spec:
+  selector:
+    service: backend-howtofixcve
+  ports:
+    - protocol: TCP
+      port: 3030
+      targetPort: 3030
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: howtofixcve-frontend
+spec:
+  selector:
+    service: frontend-howtofixcve
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

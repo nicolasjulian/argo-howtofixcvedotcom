@@ -10,3 +10,6 @@ images:
 - name: nicolas333/backend
   newName: nicolas333/backend
   newTag: 16-71e6881
+- name: nicolas333/frontend
+  newName: nicolas333/frontend
+  newTag: 4-45dd77f

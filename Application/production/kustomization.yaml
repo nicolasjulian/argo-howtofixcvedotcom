@@ -9,7 +9,7 @@ resources:
 images:
 - name: nicolas333/backend
   newName: nicolas333/backend
-  newTag: 16-71e6881
+  newTag: 17-bf6e1ea
 - name: nicolas333/frontend
   newName: nicolas333/frontend
   newTag: 5-6275b3e
